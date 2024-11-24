@@ -1,6 +1,6 @@
 locals {
   proj_name    = "cloud-posit"
-  proj_id      = "cloud-posit1"
+  proj_id      = "cloud-posit8"
   location     = "us-west4"
   zone         = "us-west4-b"
   tag_owner    = "guilhermeviegas"
