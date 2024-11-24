@@ -2,7 +2,7 @@
 # GCP project config:
 export BILLING_ACC="??????-??????-??????"
 export PROJECT_NAME="cloud-posit"
-export PROJECT_ID="${PROJECT_NAME}7"
+export PROJECT_ID="${PROJECT_NAME}8"
 gcloud projects create $PROJECT_ID --name=$PROJECT_NAME --labels=owner=guilhermeviegas,environment=dev --enable-cloud-apis
 gcloud beta billing projects link $PROJECT_ID --billing-account=$BILLING_ACC
 gcloud config set project $PROJECT_ID
