@@ -4,7 +4,7 @@ services:
     build: 
       context: .
       dockerfile: rstudio.Dockerfile
-    container_name: posit
+    container_name: cloud_posit_container
     volumes:            
       - /home/guilhermeviegas1993/:/home/rstudio/volume/
     ports:
