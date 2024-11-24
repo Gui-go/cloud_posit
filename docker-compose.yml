@@ -1,0 +1,20 @@
+version: '3'
+services:  
+  posit:
+    build: 
+      context: .
+      dockerfile: rstudio.Dockerfile
+    container_name: posit
+    volumes:            
+      - /home/guilhermeviegas1993/:/home/rstudio/volume/
+    ports:
+      - "8787:8787"      
+    environment:
+      - ROOT=true
+      - USER=rstudio
+      - PASSWORD=${R_PASS}
+    user: root
+    restart: unless-stopped
+
+
+
