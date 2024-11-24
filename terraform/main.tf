@@ -11,7 +11,6 @@ module "network" {
   proj_name = local.proj_name
   proj_id   = local.proj_id
   location  = local.location
-  zone      = local.zone
   tag_owner = local.tag_owner
 }
 
