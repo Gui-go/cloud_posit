@@ -25,28 +25,10 @@ resource "google_compute_instance" "tf_computeinstance" {
       #!/bin/bash
 
       echo "Personal RStudio repo -----------------------------------------------"
-      sudo -u guilhermeviegas1993 git clone git@github.com:personalVM/personal_rstudio.git /home/guilhermeviegas1993/personal_rstudio/
-      sudo git config --global --add safe.directory /home/guilhermeviegas1993/personal_rstudio
-      sudo env R_PASS=passwd123 docker-compose -f /home/guilhermeviegas1993/personal_rstudio/docker-compose.yml up -d --build
+      git clone https://github.com/Gui-go/cloud_posit.git /home/guilhermeviegas1993/cloud_posit/
+      sudo env R_PASS=passwd123 docker-compose -f /home/guilhermeviegas1993/cloud_posit/docker/docker-compose.yml up -d --build
       sudo docker exec -t personal_rstudio bash -c 'chown -R rstudio:rstudio /home/rstudio/volume/'
       sudo docker ps
-
-      sudo docker exec -t personal_rstudio bash -c '
-        sudo apt update -y
-        sudo apt install tree -y
-        sudo mkdir -p ~/.ssh
-        sudo echo -e "${data.google_secret_manager_secret_version.tf_secretgitprivsshk.secret_data}" > ~/.ssh/id_rsa
-        sudo chmod 600 ~/.ssh/id_rsa
-        sudo touch ~/.ssh/known_hosts
-        sudo ssh-keyscan -H github.com > ~/.ssh/known_hosts
-        sudo chmod 600 ~/.ssh/known_hosts
-        eval "$(ssh-agent -s)"
-        sudo ssh-add ~/.ssh/id_rsa
-        sudo git config --global user.email "guilhermeviegas1993@gmail.com"
-        sudo git config --global user.name "Gui-go"
-        sudo git config --global --add safe.directory /home/rstudio/volume/etl/
-        sudo chmod -R 777 /home/rstudio/volume/etl/
-      '
 
       echo "VM init finished!"
 
