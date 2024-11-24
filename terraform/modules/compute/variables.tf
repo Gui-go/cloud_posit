@@ -13,6 +13,11 @@ variable "location" {
   type        = string
 }
 
+variable "zone" {
+  description = "Zone of the resource"
+  type        = string
+}
+
 variable "machine_type" {
   description = "Virtual Machine type/size"
   type        = string
