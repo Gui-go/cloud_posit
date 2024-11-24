@@ -11,9 +11,15 @@ gcloud config set project $PROJECT_ID
 
 gcloud config list
 
+mkdir -p Documents/10-cloud-posit/
+cd Documents/10-cloud-posit/
 
+git clone git@github.com:Gui-go/cloud_posit.git
 
+cd cloud_posit/terraform
 
+terraform init
+terraform apply
 
 
 
