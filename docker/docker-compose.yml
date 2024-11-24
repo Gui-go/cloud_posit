@@ -1,6 +1,6 @@
 version: '3'
 services:  
-  posit:
+  cloud_posit_container:
     build: 
       context: .
       dockerfile: rstudio.Dockerfile
