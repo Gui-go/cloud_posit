@@ -4,7 +4,7 @@ FROM rocker/geospatial
 
 LABEL mantainer=guilhermeviegas1993@gmail.com
 
-RUN apt-get update --no-cache -y && \
+RUN apt-get update -y && \
     apt-get upgrade -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
