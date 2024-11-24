@@ -1,6 +1,15 @@
 
 
+gcloud projects list
 
+export PROJECT_NAME="cloud-posit"
+export PROJECT_ID="${PROJECT_NAME}2"
+
+gcloud projects create $PROJECT_ID --name=$PROJECT_NAME
+
+gcloud config set project $PROJECT_ID
+
+gcloud config list
 
 
 
