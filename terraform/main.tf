@@ -19,6 +19,7 @@ module "compute" {
   proj_name         = local.proj_name
   proj_id           = local.proj_id
   location          = local.location
+  zone              = local.zone
   machine_type      = "n1-standard-4"
   tag_owner         = local.tag_owner
   network_name      = module.network.vpc_network_name
