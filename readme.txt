@@ -2,19 +2,23 @@
 # GCP project config:
 export BILLING_ACC="??????-??????-??????"
 export PROJECT_NAME="cloud-posit"
-export PROJECT_ID="${PROJECT_NAME}3"
+export PROJECT_ID="${PROJECT_NAME}4"
 gcloud projects create $PROJECT_ID --name=$PROJECT_NAME --labels=owner=guilhermeviegas,environment=dev --enable-cloud-apis
 gcloud beta billing projects link $PROJECT_ID --billing-account=$BILLING_ACC
 gcloud config set project $PROJECT_ID
 gcloud projects list
+gcloud services enable iam.googleapis.com compute.googleapis.com --project=$PROJECT_ID
+gcloud services enable cloudresourcemanager.googleapis.com --project=$PROJECT_ID
+
 
 # Git clone:
-mkdir -p Documents/10-cloud-posit/
-cd Documents/10-cloud-posit/
+mkdir -p ~/Documents/10-cloud-posit/
+cd ~/Documents/10-cloud-posit/
 git clone git@github.com:Gui-go/cloud_posit.git
+export CLOUD_POSIT_HOME="/home/guilhermeviegas1993/Documents/10-cloud-posit"
 
 # Run Terraform:
-cd cloud_posit/terraform
+cd "$CLOUD_POSIT_HOME/cloud_posit/terraform"
 terraform init
 terraform apply
 
