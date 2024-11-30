@@ -33,4 +33,5 @@ RUN curl -o /home/rstudio/HSAR_0_5_1.tar.gz https://cran.r-project.org/src/contr
     R -e "install.packages('/home/rstudio/HSAR', repos = NULL, type = 'source')" && \
     rm -rf /home/rstudio/HSAR_0_5_1.tar.gz
 
-    RUN rm -rf /tmp/*
+RUN rm -rf /tmp/*
+
